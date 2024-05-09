@@ -10,10 +10,10 @@
     </head>
     <body>
         <div class="container">
-            <h1>Lista de Empleados</h1>
-            <a class="btn btn-primary mt-4 mb-4" href="/employee/new">Nuevo Empleado</a>
+            <h1>Lista de Technician</h1>
+            <a class="btn btn-primary mt-4 mb-4" href="/technician/new">Nuevo Technician</a>
 
-            <form method="post" action="/employee/search">
+            <form method="post" action="/technician/search">
                 <div class="row">
                     <div class="mb-3 col-sm-3">
                         <label class="form-label">Buscar:</label>
@@ -35,23 +35,24 @@
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Cargo</th>
-                        <th>Departamento</th>
-                        <th>Ciudad</th>
+                        <th>Dni</th>
+                        <th>Telefono</th>
+                        <th>Age</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="employee, info : ${listaEmployee}">
+                    <tr th:each="technician, info : ${listaTechnician}">
                         <td th:text="${info.index + 1}"></td>
-                        <td th:text="${employee.firstname}"></td>
-                        <td th:text="${employee.lastname}"></td>
-                        <td th:text="${employee.jobid != null ? employee.jobid.jobtitle : ''}"></td>
-                        <td th:text="${employee.departmentid != null ? employee.departmentid.departmentname : ''}"></td>
-                        <td th:text="${employee.departmentid != null && employee.departmentid.locationid != null ? employee.departmentid.locationid.city : ''}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/employee/edit' + '?id=' + ${employee.employeeid}}">Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/employee/delete' + '?id=' + ${employee.employeeid}}">Borrar</a></td>
+                        <td th:text="${technician.firstname}"></td>
+                        <td th:text="${technician.lastname}"></td>
+                        <td th:text="${technician.dni"></td>
+                        <td th:text="${technician.phone"></td>
+                        <td th:text="${technician.age"></td>
+
+                        <td><a class="btn btn-primary" th:href="@{'/technician/edit' + '?id=' + ${technician.technicianid}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/technician/delete' + '?id=' + ${technician.technicianid}}">Borrar</a></td>
                     </tr>
                 </tbody>
             </table>
